@@ -9,6 +9,7 @@
 <path>/${PROJECT_DIR_NAME}/6-loop</path>
 <path>/${PROJECT_DIR_NAME}/7-function</path>
 <path>/${PROJECT_DIR_NAME}/8-import</path>
+<path>/${PROJECT_DIR_NAME}/9-exception</path>
 </pydev_pathproperty>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python interpreter</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
