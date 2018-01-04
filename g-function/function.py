@@ -15,3 +15,4 @@ fun2("1","2","3","4","5",d="6",e="7",f="8",g="9")
 
 fun3 = lambda arg1,arg2: arg1+arg2
 print(fun3(1,2))
+

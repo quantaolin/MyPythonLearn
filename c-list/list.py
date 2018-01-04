@@ -26,5 +26,9 @@ for var in list:
     print(var)
 print()
 
+for i,var in enumerate(list):
+    print(i,var)
+print()
+
 tunple=("yun",781,'1414',0.98)
 print(tunple[3])
