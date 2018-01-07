@@ -5,6 +5,7 @@ Created on 2018年1月3日
 '''
 import time
 import threading
+import random
 
 class MyThread(threading.Thread):
     a = "null"
@@ -26,7 +27,41 @@ threadLock = threading.RLock()
 thread1 = MyThread("thread1",2)
 thread2 = MyThread("thread2",1)
 
-thread1.start()
-thread2.start()
+# thread1.start()
+# thread2.start()
 
-    
+
+class Producter(threading.Thread):
+    def __init__(self,num,condit):
+        super(Producter,self).__init__()
+        self.num = num
+        self.condit = condit
+    def run(self):
+        while True:
+            self.condit.acquire()
+            print("producter starter")
+            tmp = random.randint(0, 256)
+            print("producter product num = ",tmp)
+            self.num.append(tmp)
+            self.condit.notify()
+            self.condit.release()
+            time.sleep(random.random())
+       
+class Consumer(threading.Thread):
+    def __init__(self,num,condit):
+        super(Consumer,self).__init__()
+        self.num = num
+        self.condit = condit
+    def run(self):
+        while True:
+            self.condit.acquire()
+            print("consumer starter")
+            print("consumer get num = ",self.num.pop())
+            self.condit.wait()
+
+a = []
+condition = threading.Condition()
+threadproduct=Producter(a,condition)
+threadconsumer=Consumer(a,condition)
+threadproduct.start()
+threadconsumer.start()
