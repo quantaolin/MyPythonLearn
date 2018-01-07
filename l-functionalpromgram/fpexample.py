@@ -5,6 +5,7 @@ Created on 2018年1月7日
 '''
 from functools import reduce
 from decimal import *
+
 getcontext().prec = 8
 def getSum(amountList):
     return reduce(lambda x,y:x+y,map(lambda x:(Decimal(str(x))%Decimal("1")*Decimal("100"))%Decimal("1")/Decimal("100"),amountList))
