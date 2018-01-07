@@ -80,5 +80,6 @@ class SemaphoreExample(threading.Thread):
                 time.sleep(random.random())
 
 b=["THREAD-1","THREAD-2","THREAD-3","THREAD-4","THREAD-5"]
-for tmp in b:
-    SemaphoreExample(tmp).start()
+# for tmp in b:
+#     SemaphoreExample(tmp).start()
+
