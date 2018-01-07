@@ -12,6 +12,7 @@
 <path>/${PROJECT_DIR_NAME}/i-exception</path>
 <path>/${PROJECT_DIR_NAME}/j-class</path>
 <path>/${PROJECT_DIR_NAME}/k-multithreading</path>
+<path>/${PROJECT_DIR_NAME}/l-functionalpromgram</path>
 </pydev_pathproperty>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python interpreter</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
