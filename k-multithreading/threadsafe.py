@@ -63,5 +63,6 @@ a = []
 condition = threading.Condition()
 threadproduct=Producter(a,condition)
 threadconsumer=Consumer(a,condition)
+
 threadproduct.start()
 threadconsumer.start()
