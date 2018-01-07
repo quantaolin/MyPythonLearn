@@ -64,5 +64,21 @@ condition = threading.Condition()
 threadproduct=Producter(a,condition)
 threadconsumer=Consumer(a,condition)
 
-threadproduct.start()
-threadconsumer.start()
+# threadproduct.start()
+# threadconsumer.start()
+
+semaphore = threading.Semaphore(2)
+
+class SemaphoreExample(threading.Thread):
+    def __init__(self,name):
+        super(SemaphoreExample,self).__init__()
+        self.name = name
+    def run(self):
+        with semaphore:
+            for i in range(1,6):
+                print(self.name,"thread get i =",i)
+                time.sleep(random.random())
+
+b=["THREAD-1","THREAD-2","THREAD-3","THREAD-4","THREAD-5"]
+for tmp in b:
+    SemaphoreExample(tmp).start()
