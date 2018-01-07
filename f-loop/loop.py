@@ -23,3 +23,15 @@ print(L2)
 D1 = {1:"ONE",2:"TWO",3:"THREE"}
 L3 = [str(k) + "=" + v for k,v in D1.items()]
 print(L3)
+
+def triangles(max):
+    n,a = 0,[1]
+    while n<max:
+        yield a
+        a.insert(0, 0)
+        a.append(0)
+        a = [a[i] + a[i + 1] for i in range(0,len(a)-1)]
+        n += 1
+
+for i in triangles(5):
+    print(i)
