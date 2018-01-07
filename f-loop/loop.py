@@ -10,8 +10,16 @@ while flag < 5:
 else:
     print("flag bigger than five")
     
-str="hello world!"
-for tmp in str:
+strs="hello world!"
+for tmp in strs:
     print(tmp)
 else:
     print("this is end")
+
+L1 = ['Hello', 'World', 18, 'Apple', None]
+L2 = [x for x in L1 if isinstance(x, str)]
+print(L2)
+
+D1 = {1:"ONE",2:"TWO",3:"THREE"}
+L3 = [str(k) + "=" + v for k,v in D1.items()]
+print(L3)
