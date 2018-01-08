@@ -6,6 +6,7 @@ Created on 2018年1月3日
 import time
 import threading
 import random
+import queue
 
 class MyThread(threading.Thread):
     a = "null"
@@ -83,3 +84,48 @@ b=["THREAD-1","THREAD-2","THREAD-3","THREAD-4","THREAD-5"]
 # for tmp in b:
 #     SemaphoreExample(tmp).start()
 
+class EventExample(threading.Thread):
+    def __init__(self,flag,name):
+        super(EventExample,self).__init__()
+        self.flag=flag
+        self.name=name
+    def run(self):
+        print(self.name,",thread ready")
+        self.flag.wait()
+        print(self.name,",thread run")
+        
+eventflag = threading.Event()
+# for tmp in b:
+#     EventExample(eventflag,tmp).start()
+# print("all thread is ready")
+# for i in range(0,5):
+#     print(5-i)
+#     time.sleep(1)
+# print("lets go")
+# eventflag.set()
+
+class QueueProducter(threading.Thread):
+    def __init__(self,q):
+        super(QueueProducter,self).__init__()
+        self.q=q
+    def run(self):
+        while True:
+            for i in range(0,5):
+                innerTmp = random.randint(0,100)
+                print("product int =",innerTmp,",i=",i)
+                self.q.put(innerTmp)                
+            self.q.join()       
+class QueueConsumer(threading.Thread):
+    def __init__(self,q):
+        super(QueueConsumer,self).__init__()
+        self.q=q
+    def run(self):
+        while True:
+            time.sleep(1)
+            print("consumer get int =",self.q.get())
+            self.q.task_done()
+            time.sleep(1)
+        time.sleep(2)
+q = queue.Queue()
+QueueProducter(q).start()
+QueueConsumer(q).start()
