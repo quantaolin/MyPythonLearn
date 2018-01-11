@@ -94,5 +94,5 @@ def get3(x):
 # print(get3(3))
 
 int2=functools.partial(int, base=16)
-print(int2('abc'))
-print(int('abc',base=16))
+# print(int2('abc'))
+# print(int('abc',base=16))
