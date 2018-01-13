@@ -49,3 +49,9 @@ class tmp():
 a = tmp()
 a.gg="hello"
 print(a.gg)
+
+class tmp1():
+    def __len__(self):
+        return 1
+        
+print(len(tmp1()))
