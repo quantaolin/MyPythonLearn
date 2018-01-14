@@ -61,3 +61,15 @@ class tmp2():
     
 b=tmp2()
 # b.b='23'
+
+class tmp3():
+    @property
+    def ll(self):
+        return self.__ll
+    @ll.setter
+    def ll(self,ll):
+        self.__ll = ll
+
+# l = tmp3()
+# l.ll='test'
+# print(l.ll)
