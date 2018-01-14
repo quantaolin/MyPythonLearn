@@ -48,10 +48,16 @@ class tmp():
         print("hi")
 a = tmp()
 a.gg="hello"
-print(a.gg)
+# print(a.gg)
 
 class tmp1():
     def __len__(self):
         return 1
         
-print(len(tmp1()))
+# print(len(tmp1()))
+
+class tmp2():
+    __slots__ = ('a')
+    
+b=tmp2()
+# b.b='23'
