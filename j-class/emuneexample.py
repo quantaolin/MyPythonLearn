@@ -5,6 +5,10 @@ Created on 2018年1月14日
 '''
 from enum import Enum, unique
 
+Conter = Enum('Conter',('One','Two','Three','Four'))
+
+print(Conter.One)
+
 @unique
 class Example(Enum):
     DOING='00'
