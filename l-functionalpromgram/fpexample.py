@@ -9,12 +9,14 @@ import random
 import functools
 import datetime
 import time
+import os
 
 getcontext().prec = 8
 def getSum(amountList):
     return reduce(lambda x,y:x+y,map(lambda x:(Decimal(str(x))%Decimal("1")*Decimal("100"))%Decimal("1")/Decimal("100"),amountList))
 
 # print(getSum([5.123,2.123,12.1551231,15.2123]))
+#print(reduce(os.path.join,[os.path.abspath('.'),"user","set0","tes1"]))
 
 a = [12321,767,897,124,676,78987,1230]
 def getpalindrome(a):
