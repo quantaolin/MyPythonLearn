@@ -3,8 +3,6 @@ Created on 2017年12月23日
 
 @author: linqt
 '''
-import os
-from functools import reduce
 a=100
 print(a)
 del a
