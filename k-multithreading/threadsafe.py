@@ -127,5 +127,20 @@ class QueueConsumer(threading.Thread):
             time.sleep(1)
         time.sleep(2)
 q = queue.Queue()
-QueueProducter(q).start()
-QueueConsumer(q).start()
+# QueueProducter(q).start()
+# QueueConsumer(q).start()
+
+local_val = threading.local()
+class localExample(threading.Thread):
+    def __init__(self,name):
+        super(localExample,self).__init__()
+        self.name = name
+    def run(self):
+        tmp = random.randint(0,100)
+        print("%s thread product tmp:%s"%(self.name,tmp))
+        time.sleep(2)
+        local_val.val=tmp
+        print("%s thread get tmp:%s"%(self.name,local_val.val))
+
+# for i in range(0,5):
+#     localExample("thread-"+str(i)).start()
