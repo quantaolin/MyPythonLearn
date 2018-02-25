@@ -4,6 +4,7 @@ Created on 2017年12月27日
 @author: linqt
 '''
 class father():
+    print("hello")
     def __init__(self):
         print("father init now")
     def pr(self):
