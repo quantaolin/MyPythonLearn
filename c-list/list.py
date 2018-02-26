@@ -3,6 +3,8 @@ Created on 2017年12月23日
 
 @author: linqt
 '''
+from collections import namedtuple
+
 list=["uber",14123,3.21,'dgaer']
 print("ori:" ,list)
 print(list[2:4])
@@ -32,3 +34,6 @@ print()
 
 tunple=("yun",781,'1414',0.98)
 print(tunple[3])
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(1, 2)
+print('x=%s,y=%s'% (p.x,p.y))
