@@ -9,7 +9,7 @@ from multiprocessing.managers import BaseManager
 BaseManager.register('get_task_queue')
 BaseManager.register('get_result_queue')
 
-m = BaseManager(address=('127.0.0.1', 5000), authkey=b'abc')
+m = BaseManager(address=('127.0.0.1', 8080), authkey=b'abc')
 m.connect()
 task = m.get_task_queue()
 result = m.get_result_queue()
@@ -18,10 +18,10 @@ def delData(name):
     while True:
         try:
             n = task.get()
-            print("%s get data:%s",(name,n))
+            print("%s get data:%s" % (name,n))
             time.sleep(5)       
-            result.put(name+"--"+n)
-        except queue.Empty:
+            result.put(name+"--"+str(n))
+        except EOFError:
             print('task queue is empty.',name)
             break
 
